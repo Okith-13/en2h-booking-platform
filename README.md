@@ -90,8 +90,13 @@ The console will start the compilation and listen at http://localhost:3000.
 
 💡 Assumptions Made & Future Improvements
 Assumptions Made:
-* **Mock Authentication**: For assessment agility, the system checks incoming login data against static credentials (admin / password123) inside the service layer rather than maintaining full multi-relational database user models.
-* **Database Selection**: Relocated the storage choice from PostgreSQL to SQLite to eliminate third-party local database engines, achieving zero-config validation for evaluators out-of-the-box.
+* **Mock Authentication**: For assessment agility, the system checks incoming login data against static credentials (admin / password123) inside the service layer rather than maintaining full multi relational database user models.
+* **Database Selection**: Relocated the storage choice from PostgreSQL to SQLite to eliminate third party local database engines, achieving zero config validation for evaluators out of the box.
+
+Future Improvements:
+* Dynamic relational database user accounts replacing hardcoded checking states.
+*Implementation of full automated unit testing coverage across service endpoints.
+* Global OpenAPI/Swagger schema definitions built into the server layer for live routing documentation.
 
 🧪 Postman API Testing Manual
 
