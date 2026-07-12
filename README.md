@@ -34,12 +34,17 @@ en2h-booking-platform/
 │   │   ├── booking.entity.ts
 │   │   ├── bookings.controller.ts
 │   │   ├── bookings.module.ts
-│   │   └── bookings.service.ts
+│   │   ├── bookings.service.ts
+│   │   └── bookings.service.spec.ts
 │   ├── app.module.ts
 │   └── main.ts
 ├── .env
 ├── .env.example
-└── package.json
+├── Dockerfile
+├── .dockerignore
+├── package.json
+└── README.md
+
 ```
 
 ---
@@ -133,7 +138,22 @@ Check: Returns an access_token. Copy it to authenticate your next requests.
 
 * **Verify Past Date Block**: Change bookingDate to "2025-01-01". The server will return 400 Bad Request ("Booking date cannot be in the past").  
 * **Verify Double Booking Prevention**: Submit the exact same future booking payload twice. The second attempt returns 400 Bad Request ("This service slot is already booked for this time.").  
-* **Cancel Booking** (PUT http://localhost:3000/bookings/1/cancel) -> Transitions status to CANCELLED[cite: 1].
-* **Verify Status Flow Block** (PATCH http://localhost:3000/bookings/1/status with body { "status": "COMPLETED" }). The server blocks this request with 400 Bad Request ("Cancelled bookings cannot be marked as completed")[cite: 1].
+* **Cancel Booking** (PUT http://localhost:3000/bookings/1/cancel) -> Transitions status to CANCELLED.
+* **Verify Status Flow Block** (PATCH http://localhost:3000/bookings/1/status with body { "status": "COMPLETED" }). The server blocks this request with 400 Bad Request ("Cancelled bookings cannot be marked as completed").
+
+---
+
+## 🐳 Docker Deployment
+To launch the service using Docker:
+```bash
+docker build --no-cache -t en2h-booking-api .
+docker run -p 3000:3000 --env-file .env en2h-booking-api
+```
+
+## 🧪 Running Unit Tests
+To run the framework isolated unit tests validating core application business logic:
+```bash
+npm run test
+```
 
 ---
