@@ -54,7 +54,7 @@ en2h-booking-platform/
 ### 1. Clone the Project
 Open your computer's terminal, navigate to your desired directory and download the repository:
 ```bash
-git clone <your-github-repository-url>
+git clone https://github.com/Okith-13/en2h-booking-platform.git
 cd en2h-booking-platform
 ```
 
@@ -68,7 +68,7 @@ npm install
 Create a .env file in the root folder (at the same level as package.json). Copy the structure from .env.example and supply a secret key string:
 ```Code Snippet
 PORT=3000
-JWT_SECRET=
+JWT_SECRET=some-random-strings
 JWT_EXPIRATION=1d
 ```
 
